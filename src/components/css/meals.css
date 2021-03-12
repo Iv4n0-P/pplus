@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+/*Global styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+}
+
+/*Meals*/
+.meals-container {
+    background-image: url('http://themearth.com/demo/html/restaura/view/assets/img/speacial-bg.jpg');
+    background-size: cover;
+    padding: 30px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    overflow: hidden;
+}
+
+.meals-header {
+    width: 80%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.column-1 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.column-2 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.button-back {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid #b98d36;
+    border-radius: none;
+    padding: 10px 20px;
+}
+
+.column-3 {
+    width: 20%;
+}
+
+.meals-title {
+    font-size: 42px;
+}
+
+.meals-subtitle {
+    opacity: .5;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.carousel-wrapper {
+    width: 80%;
+    max-height: 500px;
+    position: relative;
+}
+
+.meal-card {
+    min-height: 100%;
+}
+
+.meal-img-wrapper {
+    min-height: 300px;
+    max-height: 300px;
+    position: relative;  
+    overflow: hidden;
+}
+
+.meal-img {
+    width: 100%;
+    max-height: 300px;
+    transition: all .4s ease;
+}
+
+.meal-price {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600px;
+    border-radius: 180px;
+    background-color: #282b2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.meal-price span {
+    color: #b98d36;
+    font-weight: 900;
+    font-size: 32px;
+}
+
+.meal-content {
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .4s ease;
+    text-align: center;
+    max-height: 100px!important;
+    min-height: 100px!important;
+}
+
+.meal-name {
+    font-size: 26px;
+}
+
+.meal-card:hover .meal-img {
+    transform: scale(1.2);
+}
+
+.meal-card:hover .meal-content {
+    background-color: rgba(50,51,51,.8);
+    color: #b98d36;
+}
+
+.carousel__back-button {
+    position: absolute;
+    top: 30%;
+    left: -80px;
+    font-size: 25px;
+    font-weight: 500;
+    border: none;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    display: inline-block;
+    outline: none;
+
+    background-color: #282b2e;
+    color: white;
+}
+
+.carousel__back-button:disabled,
+.carousel__back-button[disabled] {
+    background-color: rgba(255,255,255,.1);
+}
+
+.carousel__back-button:hover {
+    background-color: #b98d36;
+}
+
+
+.carousel__next-button {
+    position: absolute;
+    top: 30%;
+    right: -80px;
+    font-size: 25px;
+    font-weight: 500;
+    border: none;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    display: inline-block;
+    outline: none;
+    background-color: #282b2e;
+    color: white;
+}
+
+.carousel__next-button:disabled,
+.carousel__next-button[disabled] {
+    background-color: rgba(255,255,255,.1);
+}
+
+.carousel__next-button:hover {
+    background-color: #b98d36;
+}
+
+.carousel__slider {
+    height: 100vh!important;
+}
+
