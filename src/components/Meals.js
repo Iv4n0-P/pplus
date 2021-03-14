@@ -29,7 +29,7 @@ const Meals = (props) => {
             return (<Slide key={i} index={i}>
                 <div className="meal-card">
                     <div className="meal-img-wrapper">
-                        <img className="meal-img" src={meal.image} />
+                        <img alt={meal.name} className="meal-img" src={meal.image} />
                         <div className="meal-price">
                             <p><span>{meal.price}</span> kn</p>
                         </div>
