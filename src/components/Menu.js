@@ -1,6 +1,6 @@
 import React from 'react'
 import planplus from '../apis/planplus'
-import { CarouselProvider, Slider, Slide, DotGroup, Dot, ButtonBack, ButtonNext } from 'pure-react-carousel'
+import { CarouselProvider, Slider, Slide, Dot } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import './css/menu.css'
 
