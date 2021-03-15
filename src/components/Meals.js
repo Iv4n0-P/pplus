@@ -12,11 +12,7 @@ const Meals = (props) => {
 
     React.useEffect(() => {
         const getMeals = async () => {
-            const { data } = await planplus.get(`/items/menu?category=${params.id}`, {
-                params: {
-                    origin: '*'
-                }
-            })
+            const { data } = await planplus.get(`/items/menu?category=${params.id}`, {})
 
             setMeals(data.results)
         }

@@ -10,11 +10,7 @@ const Menu = (props) => {
 
     React.useEffect(() => {
         const getCategories = async () => {
-            const { data } = await planplus.get('/categories/menu', {
-                params: {
-                    origin: '*'
-                }
-            })
+            const { data } = await planplus.get('/categories/menu', {})
             setCategories(data.results)
 
         }
