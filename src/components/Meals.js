@@ -18,7 +18,7 @@ const Meals = (props) => {
         }
 
         getMeals()
-    }, [])
+    }, [params.id])
 
     const renderMeals = () => {
         return (meals.map((meal, i) => {
