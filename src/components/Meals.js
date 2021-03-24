@@ -42,15 +42,52 @@ const Meals = (props) => {
         }))
     }
 
+    const backToMenuLabel = () => {
+        if (params.lang === 'hr') {
+            return 'Povratak u meni'
+        }
+
+        if (params.lang === 'en') {
+            return 'Back to menu'
+        }
+
+        if (params.lang === 'it') {
+            return 'Torna al menu'
+        }
+
+        if (params.lang === 'de') {
+            return 'Zurück zum Menü'
+        }
+    }
+
+    const subtitleLabel = () => {
+        if (params.lang === 'hr') {
+            return 'Nakon što odlučite pozovite osoblje pritiskom na zvono'
+        }
+
+        if (params.lang === 'en') {
+            return 'Once you decide, call the staff by pressing the bell'
+        }
+
+        if (params.lang === 'it') {
+            return 'Una volta deciso, chiama lo staff premendo il campanello'
+        }
+
+        if (params.lang === 'de') {
+            return 'Wenn Sie sich entschieden haben, rufen Sie das Personal an, indem Sie auf die Klingel drücken'
+        }
+    }
+
+
     return (
         <div className="meals-container">
             <div className="meals-header">
                 <div className="column-1">
-                    <Link className="button-back" to={`/menu/${params.lang}`}>Back to menu</Link>
+                    <Link className="button-back" to={`/menu/${params.lang}`}>{backToMenuLabel()}</Link>
                 </div>
                 <div className="column-2">
                     <h1 className="meals-title">{params.category}</h1>
-                    <h3 className="meals-subtitle">Nakon što odlučite pozovite osoblje pritiskom na zvono</h3>
+                    <h3 className="meals-subtitle">{subtitleLabel()}</h3>
                 </div>
                 <div className="column-3">
 

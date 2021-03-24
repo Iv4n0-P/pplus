@@ -23,9 +23,9 @@ const Meal = (props) => {
             return meal.related_items.map((item, i) => {
                 return (<Slide key={i} index={i}>
 
-                    <div onClick={() => {props.history.push(`/meal?id=${item.id}&lang=${params.lang}`)}} className="related-meal">
+                    <div onClick={() => { props.history.push(`/meal?id=${item.id}&lang=${params.lang}`) }} className="related-meal">
                         <div className="related-meal-overflow">
-                        <div className="related-meal-photo" style={{ backgroundImage: `url(${item.image})` }}></div>
+                            <div className="related-meal-photo" style={{ backgroundImage: `url(${item.image})` }}></div>
                         </div>
                         <div className="related-meal-content">
                             <h6 className="related-meal-title">{item.name}</h6>
@@ -49,6 +49,42 @@ const Meal = (props) => {
         }
     }
 
+    const getRelatedItemsTitle = () => {
+        if (params.lang === 'hr') {
+            return 'Sa ovim preporučujemo'
+        }
+
+        if (params.lang === 'en') {
+            return 'With this we recommend'
+        }
+
+        if (params.lang === 'it') {
+            return 'Con questo offriamo'
+        }
+
+        if (params.lang === 'de') {
+            return 'Damit bieten wir'
+        }
+    }
+
+    const getButtonBackTitle = () => {
+        if (params.lang === 'hr') {
+            return 'Povratak'
+        }
+
+        if (params.lang === 'en') {
+            return 'Go back'
+        }
+
+        if (params.lang === 'it') {
+            return 'Torna indietro'
+        }
+
+        if (params.lang === 'de') {
+            return 'Geh zurück'
+        }
+    }
+
     return (
         <div className="meal-container">
             <div className="meal-wrap">
@@ -63,7 +99,7 @@ const Meal = (props) => {
                             <CarouselProvider
                                 naturalSlideWidth={10}
                                 naturalSlideHeight={10}
-                                totalSlides={3}
+                                totalSlides={meal.related_items && meal.related_items.length}
                                 visibleSlides={1}
                                 isPlaying={true}
                                 interval={3000}
@@ -73,21 +109,20 @@ const Meal = (props) => {
                                 <div className="meal-slider-wrap">
 
                                     <div className="meal-slider-controls">
-                                        
+
                                         <div className="meal-buttons">
                                             <ButtonBack className="meal-bback">&larr;</ButtonBack>
                                             <ButtonNext className="meal-bback">&rarr;</ButtonNext>
                                         </div>
                                     </div>
                                     <div className="meal-slider-wraper">
-                                    <h5 className="meal-controls-title">Related items</h5>
-                                    <Slider
-                                        className="meal-slider"
-                                        moveThreshold={0.01}
-                                    >
-                                    
-                                        {renderRelated()}
-                                    </Slider>
+                                        <h5 className="meal-controls-title">{getRelatedItemsTitle()}</h5>
+                                        <Slider
+                                            className="meal-slider"
+                                            moveThreshold={0.01}
+                                        >
+                                            {renderRelated()}
+                                        </Slider>
                                     </div>
 
                                 </div>
@@ -96,9 +131,9 @@ const Meal = (props) => {
 
                         </div>
                     </div>
-
                 </div>
                 <div className="meal-content-single">
+                    <p className="button-back-meal" onClick={() => {props.history.goBack()}}>{getButtonBackTitle()}</p>
                     <h1 className="meal-title">{meal.name}</h1>
                     <p className="meal-desc">{meal.description}</p>
                     <div className="meal-ingredients">
