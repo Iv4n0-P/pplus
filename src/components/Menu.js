@@ -2,7 +2,6 @@ import React from 'react'
 import planplus from '../apis/planplus'
 import { CarouselProvider, Slider, Slide, Dot } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import './css/menu.css'
 
 const Menu = (props) => {
 
@@ -10,7 +9,7 @@ const Menu = (props) => {
 
     React.useEffect(() => {
         const getCategories = async () => {
-            const { data } = await planplus.get('/categories/menu')
+            const { data } = await planplus.get(`${props.match.params.lang}/categories/menu`)
             setCategories(data.results)
 
         }
@@ -37,7 +36,7 @@ const Menu = (props) => {
     }
 
     const handleOnClick = (menuId, catName) => {
-        props.history.push(`/menu?category=${catName}&id=${menuId}`)
+        props.history.push(`/meals?category=${catName}&id=${menuId}&lang=${props.match.params.lang}`)
     }
 
     return (

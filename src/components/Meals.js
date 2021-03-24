@@ -2,7 +2,6 @@ import React from 'react'
 import planplus from '../apis/planplus'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import './css/meals.css'
 import * as QueryString from 'query-string'
 import { Link } from 'react-router-dom'
 
@@ -12,18 +11,22 @@ const Meals = (props) => {
 
     React.useEffect(() => {
         const getMeals = async () => {
-            const { data } = await planplus.get(`/items/menu?category=${params.id}`)
-
+            const { data } = await planplus.get(`${params.lang}/items/menu?category=${params.id}`)
+            
             setMeals(data.results)
         }
 
         getMeals()
     }, [params.id])
 
+    const getMeal = (id) => {
+        props.history.push(`/meal?id=${id}&lang=${params.lang}`)
+    }
+
     const renderMeals = () => {
         return (meals.map((meal, i) => {
             return (<Slide key={i} index={i}>
-                <div className="meal-card">
+                <div onClick={() => {getMeal(meal.id)}} className="meal-card">
                     <div className="meal-img-wrapper">
                         <img alt={meal.name} className="meal-img" src={meal.image} />
                         <div className="meal-price">
@@ -43,7 +46,7 @@ const Meals = (props) => {
         <div className="meals-container">
             <div className="meals-header">
                 <div className="column-1">
-                    <Link className="button-back" to="/">Back to menu</Link>
+                    <Link className="button-back" to={`/menu/${params.lang}`}>Back to menu</Link>
                 </div>
                 <div className="column-2">
                     <h1 className="meals-title">{params.category}</h1>
@@ -64,13 +67,13 @@ const Meals = (props) => {
                     step={3}
                     infinite={true}
                 >
-                    <Slider
+                    <Slider className="meals-slider"
                         moveThreshold={0.01}
                     >
                         {renderMeals()}
                     </Slider>
-                    <ButtonBack>&larr;</ButtonBack>
-                    <ButtonNext>&rarr;</ButtonNext>
+                    <ButtonBack className="meals-bback">&larr;</ButtonBack>
+                    <ButtonNext className="meals-bnext">&rarr;</ButtonNext>
                 </CarouselProvider>
             </div>
         </div>
