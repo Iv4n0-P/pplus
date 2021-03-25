@@ -1,0 +1,75 @@
+/*Intro*/
+.intro-container {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("../img/bg.jpg");
+    background-size: cover;
+    height: 100vh;
+    color: #282b2e;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    
+}
+
+.intro-content {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.intro-logo {
+    width: 200px;
+}
+
+.intro-title {
+    color: #b98d36;
+}
+
+.intro-languages-wrap {
+  margin-top: 50px;
+  display: flex;
+  width: 800px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.intro-link {
+    text-decoration: none;
+}
+
+.lang-box {
+    background-color: rgba(255,255,255,0.1);
+    padding: 10px 40px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid rgba(255,255,255,0.05);
+    width: 180px;
+}
+
+.lang-box--active {
+    border: 1px solid #b98d36;
+}
+
+.lang-box:hover {
+    border: 1px solid #b98d36;
+}
+
+.lang-box h6 {
+    color: #b98d36;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.lang-box p {
+    color: white;
+    font-weight: 300;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    margin-top: 5px;
+}

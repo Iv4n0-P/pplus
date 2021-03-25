@@ -90,7 +90,8 @@ const Meals = (props) => {
                     <h3 className="meals-subtitle">{subtitleLabel()}</h3>
                 </div>
                 <div className="column-3">
-
+                <h6 className="bell-title">Call staff</h6>
+                <span className="bell fa fa-bell"></span>
                 </div>
             </div>
             <div className="carousel-wrapper">

@@ -1,0 +1,71 @@
+/*Menu*/
+.menu-container {
+    background-image: url('http://themearth.com/demo/html/restaura/view/assets/img/speacial-bg.jpg');
+    background-size: cover;
+    
+    height: 100vh;
+    color: white;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    
+}
+
+.menu-carousel-wrapper {
+    width: 90%;
+    height: 60%;
+    display: flex;
+    flex-direction: row-reverse;  
+}
+
+.slider-wrapper {
+ width: 80%;
+ height: 60vh;
+}
+
+.menu-card {
+    position: relative;
+    height: 80vh;
+    cursor: pointer;
+    background-size: cover;
+}
+
+.menu-card-title {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    color: #b98d36;
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.dots-wrapper {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #282b2e;
+    padding: 20px 20px;
+    height: 75vh;
+}
+.dots {   
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: 16px;
+    border: none;
+    padding: 5px 10px;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+    background-color: #282b2e;
+    letter-spacing: 1.2px;
+}
+
+.carousel__dot--selected {
+    background-color: #b98d36;
+}
+
+.carousel__slider {
+    max-height: 75vh!important;
+}

@@ -87,6 +87,15 @@ const Meal = (props) => {
 
     return (
         <div className="meal-container">
+            <div className="meal-header">
+                <div className="column-1-meal">
+                    <p className="button-back-meal" onClick={() => { props.history.goBack() }}>{getButtonBackTitle()}</p>
+                </div>
+                <div className="column-3-meal">
+                    <h6 className="bell-title">Call staff</h6>
+                    <span className="bell fa fa-bell"></span>
+                </div>
+            </div>
             <div className="meal-wrap">
                 <div className="meal-photo">
                     <div className="meal-photo-img" style={{ backgroundImage: `url(${meal.image})` }}>
@@ -94,56 +103,50 @@ const Meal = (props) => {
                             <p><span>{meal.price}</span> kn</p>
                         </div>
 
-                        <div className="related-meals">
 
-                            <CarouselProvider
-                                naturalSlideWidth={10}
-                                naturalSlideHeight={10}
-                                totalSlides={meal.related_items && meal.related_items.length}
-                                visibleSlides={1}
-                                isPlaying={true}
-                                interval={3000}
-                                step={1}
-                                infinite={true}
-                            >
-                                <div className="meal-slider-wrap">
+                    </div>
+                </div>
+                <div className="meal-content-single">
+                    <h1 className="meal-title">{meal.name}</h1>
+                    <p className="meal-desc">{meal.description}</p>
+                    <div className="related-meals">
 
-                                    <div className="meal-slider-controls">
+                        <CarouselProvider
+                            naturalSlideWidth={10}
+                            naturalSlideHeight={10}
+                            totalSlides={meal.related_items && meal.related_items.length}
+                            visibleSlides={1}
+                            isPlaying={true}
+                            interval={3000}
+                            step={1}
+                            infinite={true}
+                        >
+                            <div className="meal-slider-wrap">
 
+
+
+
+                                <div className="meal-slider-wraper">
+                                    <div className="meal-slider-header">
+                                        <h5 className="meal-controls-title">{getRelatedItemsTitle()}</h5>
                                         <div className="meal-buttons">
                                             <ButtonBack className="meal-bback">&larr;</ButtonBack>
                                             <ButtonNext className="meal-bback">&rarr;</ButtonNext>
                                         </div>
                                     </div>
-                                    <div className="meal-slider-wraper">
-                                        <h5 className="meal-controls-title">{getRelatedItemsTitle()}</h5>
-                                        <Slider
-                                            className="meal-slider"
-                                            moveThreshold={0.01}
-                                        >
-                                            {renderRelated()}
-                                        </Slider>
-                                    </div>
 
+                                    <Slider
+                                        className="meal-slider"
+                                        moveThreshold={0.01}
+                                    >
+                                        {renderRelated()}
+                                    </Slider>
                                 </div>
-                            </CarouselProvider>
+
+                            </div>
+                        </CarouselProvider>
 
 
-                        </div>
-                    </div>
-                </div>
-                <div className="meal-content-single">
-                    <p className="button-back-meal" onClick={() => {props.history.goBack()}}>{getButtonBackTitle()}</p>
-                    <h1 className="meal-title">{meal.name}</h1>
-                    <p className="meal-desc">{meal.description}</p>
-                    <div className="meal-ingredients">
-                        <h5 className="meal-ingredients-title">Ingredients</h5>
-                        <div className="ingredients">
-                            <p className="meal-ingredient"><span>&#10003;</span> grilled bread</p>
-                            <p className="meal-ingredient"><span>&#10003;</span> garlic</p>
-                            <p className="meal-ingredient"><span>&#10003;</span> olive oil</p>
-                            <p className="meal-ingredient"><span>&#10003;</span> salt</p>
-                        </div>
                     </div>
                 </div>
 
